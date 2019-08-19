@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BASE</title>
+   <link>
+	<title>base</title>
 </head>
-<body style="color: cyan">
+<body style="background-color: cyan">
+   <h1>Welcome to mini-amazon website</h1>
+   
+   <form action="" method="GET">
+   	Search your products: <input type="text" name="search_bar"><br>
+      <button>SEARCH</button>
+   </form>
+   {% block content %}
+   
 
+   {% endblock %}
 </body>
 </html>
