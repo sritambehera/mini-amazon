@@ -6,14 +6,20 @@
 </head>
 <body style="background-color: cyan">
    <h1>Welcome to mini-amazon website</h1>
-   
+   <a href="http://127.0.0.1:8000/shopping/">Go to shopping</a>
    <form action="" method="GET">
    	Search your products: <input type="text" name="search_bar">
       <button>SEARCH</button>
    </form>
+   <form action="/shopping/Logout/" method="POST">
+       {% csrf_token %}
+      <input type="submit" value="Logout">
+   </form>
+
    {% block content %}
    
 
    {% endblock %}
+   <a href="http://127.0.0.1:8000/shopping/SpecialOffers">Go to offer zone</a>
 </body>
 </html>

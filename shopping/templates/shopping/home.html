@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>homepage</title>
-</head>
-<body>
-   <form>
-   	Search your products: <input type="text" name="type here"><br>
-   	<input type="submit" name="SEARCH">
-   </form>
+ {% extends 'base.html' %}
+
+ {% block content %}
+<body >
+   
+     <p>New to this site ? <a href="http://127.0.0.1:8000/shopping/New_User">SignUp here >> </a></p>
+      
+      
+
+      <p>Already have an acoount? <a href="http://127.0.0.1:8000/shopping/Login">login here</p>
+   
 </body>
-</html>
+{% endblock %}
