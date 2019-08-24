@@ -3,11 +3,23 @@
  {% block content %}
 <body >
    
-     <p>New to this site ? <a href="http://127.0.0.1:8000/shopping/New_User">SignUp here >> </a></p>
-      
-      
-
-      <p>Already have an acoount? <a href="http://127.0.0.1:8000/shopping/Login">login here</p>
+     <form action="" method="GET">
+   	Search your products: <input type="text" name="search_bar">
+      <button>SEARCH</button>
+   </form>
    
+      
+      {% if user.is_authenticated %}
+      <p>Welcome {{user.username}}</p>
+      <form action="/shopping/Logout/" method="POST">
+       {% csrf_token %}
+      <input type="submit" value="Logout">
+   </form>
+      {% else %}
+      <p>New to this site ? <a href="http://127.0.0.1:8000/shopping/New_User">SignUp here >> </a></p>
+      <p>Already have an acoount? <a href="http://127.0.0.1:8000/shopping/Login">login here</a></p>
+
+     {% endif%}
+      <a href="http://127.0.0.1:8000/shopping/SpecialOffers">Go to offer zone</a>
 </body>
 {% endblock %}

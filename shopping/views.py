@@ -5,6 +5,7 @@ from .forms import CustomerForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 def home(request):
 	return render(request, 'shopping/home.html')
@@ -35,6 +36,14 @@ def Logout(request):
 	if request.method == 'POST':
 		logout(request)
 		return render(request, 'shopping/home.html')
+
+
+'''
+def Account(request):
+	user = 
+	return render(request, 'shopping/account.html', {'user':user})
+'''
+
 @login_required(login_url="/shopping/Login/")
 def SpecialOffers(request):
 	return render(request, 'shopping/specialoffers.html')
@@ -42,7 +51,7 @@ def SpecialOffers(request):
 
 '''
 def Login(request):
-
+    if request.method == 'POST':
 	username = request.POST['username']
 	password = request.POST['password']
 	user = authenticate(request, username=username, password=password)
@@ -54,6 +63,7 @@ def Login(request):
 	else:
 		return render(request, 'shopping/login.html')
 '''
+
 '''
 def User_Info(request):
 	users = Customer.objects.all()

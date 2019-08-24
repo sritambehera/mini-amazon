@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^Login/$', views.Login, name='Login'),
     url(r'^Logout/$', views.Logout, name='Logout'),
     url(r'^SpecialOffers/$', views.SpecialOffers, name='SpecialOffers'),
+  #  url(r'^account/$', views.Account, name='account')
 ]
