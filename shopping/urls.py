@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 from . import views
@@ -9,5 +10,7 @@ urlpatterns = [
     url(r'^Login/$', views.Login, name='Login'),
     url(r'^Logout/$', views.Logout, name='Logout'),
     url(r'^SpecialOffers/$', views.SpecialOffers, name='SpecialOffers'),
+    url(r'^ChangePassword/$', views)
   #  url(r'^account/$', views.Account, name='account')
 ]
+urlpatterns += staticfiles_urlpatterns()

@@ -1,4 +1,6 @@
+
  {% extends 'base.html' %}
+ {% load static %}
 
  {% block content %}
 <body >
@@ -7,6 +9,7 @@
    	Search your products: <input type="text" name="search_bar">
       <button>SEARCH</button>
    </form>
+   <a href="http://127.0.0.1:8000/products">select your categorys</a>
    
       
       {% if user.is_authenticated %}
@@ -21,5 +24,19 @@
 
      {% endif%}
       <a href="http://127.0.0.1:8000/shopping/SpecialOffers">Go to offer zone</a>
+      <div class="products">
+        <a href=""><img src="{% static 'shopping/alexa.jpg' %}" alt="My image"  height="400" width="400"></a>
+        <a href=""><img src="{% static 'shopping/iphonex.jpg' %}" alt="My image"  height="400" width="400"></a>
+       <a href=""> <img src="{% static 'shopping/jbl.jpg' %}" alt="My image"  height="400" width="400"></a>
+      </div>
 </body>
+
+<ul>
+
+
+
+</ul>
 {% endblock %}
+
+
+
