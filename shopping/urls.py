@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^Login/$', views.Login, name='Login'),
     url(r'^Logout/$', views.Logout, name='Logout'),
     url(r'^SpecialOffers/$', views.SpecialOffers, name='SpecialOffers'),
-    url(r'^ChangePassword/$', views)
+    url(r'^ChangePassword/$', views.Change_Password, name='ChangePassword')
   #  url(r'^account/$', views.Account, name='account')
 ]
 urlpatterns += staticfiles_urlpatterns()

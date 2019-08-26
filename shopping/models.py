@@ -9,4 +9,5 @@ class Customer(models.Model):
 	password= models.CharField(max_length=10)
 
 
+
 # Create your models here

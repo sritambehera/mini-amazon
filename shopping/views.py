@@ -1,9 +1,6 @@
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
-from .models import Customer
-from .forms import CustomerForm
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -44,9 +41,29 @@ def Account(request):
 	return render(request, 'shopping/account.html', {'user':user})
 '''
 
+
+
+		
+
 @login_required(login_url="/shopping/Login/")
 def SpecialOffers(request):
 	return render(request, 'shopping/specialoffers.html')
+
+
+@login_required(login_url="/shopping/Login/")
+def Change_Password(request):
+	if request.method == 'POST':
+		form = PasswordChangeForm(request.user, request.POST)
+		if form.is_valid():
+			user = form.save()
+			update_session_auth_hash(request, user)
+			return render(request, 'shopping/home.html')
+
+	else:
+		form = PasswordChangeForm(request.user)
+
+	
+	return render(request, 'shopping/changepassword.html', {'form':form})
 
 
 '''
