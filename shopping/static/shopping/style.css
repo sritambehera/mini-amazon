@@ -1,4 +1,14 @@
 .products{
-	
-	float: right;
+	float: left;
+	border: 1px solid;
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+body{
+background-color: cyan;
+}
+.button{
+	background-color: red;
 }

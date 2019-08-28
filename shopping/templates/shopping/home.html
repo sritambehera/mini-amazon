@@ -3,8 +3,9 @@
  {% load static %}
 
  {% block content %}
+
 <body >
-   
+   <div>
      <form action="" method="GET">
    	Search your products: <input type="text" name="search_bar">
       <button>SEARCH</button>
@@ -25,18 +26,42 @@
 
      {% endif%}
       <a href="http://127.0.0.1:8000/shopping/SpecialOffers">Go to offer zone</a>
+    </div>
       <div class="products">
+        
         <a href=""><img src="{% static 'shopping/alexa.jpg' %}" alt="My image"  height="400" width="400"></a>
-        <a href=""><img src="{% static 'shopping/iphonex.jpg' %}" alt="My image"  height="400" width="400"></a>
-       <a href=""> <img src="{% static 'shopping/jbl.jpg' %}" alt="My image"  height="400" width="400"></a>
+        <div>
+        <button type="submit">Add to Cart</button>
       </div>
+      </div>
+      <div class="products">
+        <a href=""><img src="{% static 'shopping/iphonex.jpg' %}" alt="My image"  height="400" width="400"></a>
+        <div>
+        <button type="submit">Add to Cart</button>
+      </div>
+      </div>
+      <div class="products">
+       <a href=""> <img src="{% static 'shopping/jbl.jpg' %}" alt="My image"  height="400" width="400"></a>
+        <div>
+        <button type="submit">Add to Cart</button>
+      </div>
+     </div>
+      <div class="products">
+       <a href=""> <img src="{% static 'shopping/acer-nitro.jpg' %}" alt="My image"  height="400" width="400"></a>
+        <div>
+        <button type="submit">Add to Cart</button>
+      </div>
+     </div>
+      <div class="products">
+       <a href=""> <img src="{% static 'shopping/supercoat.jpg' %}" alt="My image"  height="400" width="400"></a>
+        <div>
+        <button type="submit">Add to Cart</button>
+      </div>
+     </div>
+    
 </body>
 
-<ul>
 
-
-
-</ul>
 {% endblock %}
 
 

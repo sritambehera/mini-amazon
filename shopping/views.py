@@ -24,7 +24,7 @@ def Login(request):
 		if form.is_valid():
 			user = form.get_user()
 			login(request, user)
-			return render(request, 'shopping/home.html')
+			return redirect('/shopping/')
 	else:
 		form = AuthenticationForm()
 	return render(request, 'shopping/login.html', {'form':form})
@@ -32,7 +32,7 @@ def Login(request):
 def Logout(request):
 	if request.method == 'POST':
 		logout(request)
-		return render(request, 'shopping/home.html')
+		return redirect('/shopping/')
 
 
 '''
@@ -43,7 +43,10 @@ def Account(request):
 
 
 
-		
+
+def Cart(request):
+	return render(request, 'shopping/cart.html')
+
 
 @login_required(login_url="/shopping/Login/")
 def SpecialOffers(request):
@@ -57,7 +60,7 @@ def Change_Password(request):
 		if form.is_valid():
 			user = form.save()
 			update_session_auth_hash(request, user)
-			return render(request, 'shopping/home.html')
+			return render('/shopping/')
 
 	else:
 		form = PasswordChangeForm(request.user)
