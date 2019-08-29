@@ -3,7 +3,7 @@ from .models import Products
 
 
 
-class ProductsForm(forms.ModelForm):
+class ProductsForm(forms.Form):
 
 	class meta:
 		model = Products
