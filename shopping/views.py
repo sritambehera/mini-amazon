@@ -5,10 +5,12 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from products.models import Products
+from shopping.models import UserCart
 
 def home(request):
 	data = Products.objects.all()
-	return render(request, 'shopping/home.html', {'data':data, 'media_url':settings.MEDIA_URL})
+	cart = UserCart.objects.all()
+	return render(request, 'shopping/home.html', {'data':data, 'media_url':settings.MEDIA_URL, 'cart':cart})
 
 def New_User(request):
 	if request.method == "POST":  
@@ -46,11 +48,15 @@ def Account(request):
 	return render(request, 'shopping/account.html', {'user':user})
 '''
 
-
-
-
 def Cart(request):
-	return render(request, 'shopping/cart.html')
+	if request.method == "POST":
+		form = UserCart(request.POST)
+		variable = UserCart(cart_item = request.POST)
+		variable.save()
+		return render(request, 'shopping/cart.html')
+	else:
+		form = UserCart()
+	return redirect( '/shopping/',{'form':form})
 
 
 @login_required(login_url="/shopping/Login/")

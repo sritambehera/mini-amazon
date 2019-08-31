@@ -15,6 +15,9 @@
       
       {% if user.is_authenticated %}
       <p>Welcome {{user.username}}</p>
+      {% for items in cart %}
+      <p>{{items.cart_item}}</p>
+      {% endfor %}
       <a href="http://127.0.0.1:8000/shopping/ChangePassword">ChangePassword</a>
       <form id="Logout" action="/shopping/Logout/" method="POST">
        {% csrf_token %}
@@ -32,7 +35,10 @@
     <div class="products">
     <a href=""><img src="{{media_url}}{{datas.items}}" height="400" width="400"></a>
     <div>
-      <button type="submit">Add to Cart</button>
+      <form id="cart" action="Cart/" method="POST" name="cartitem">
+        {% csrf_token %}
+      <input type="submit" value="Add To Cart">
+    </form>
     </div>
     </div>
     {% endfor %}
