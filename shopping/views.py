@@ -1,11 +1,14 @@
+from django.conf import settings
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from products.models import Products
 
 def home(request):
-	return render(request, 'shopping/home.html')
+	data = Products.objects.all()
+	return render(request, 'shopping/home.html', {'data':data, 'media_url':settings.MEDIA_URL})
 
 def New_User(request):
 	if request.method == "POST":  
@@ -33,6 +36,8 @@ def Logout(request):
 	if request.method == 'POST':
 		logout(request)
 		return redirect('/shopping/')
+
+
 
 
 '''

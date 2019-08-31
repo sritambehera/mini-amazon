@@ -12,3 +12,7 @@ background-color: cyan;
 .button{
 	background-color: red;
 }
+#Logout {
+	background-color: red;
+	float: right;
+}

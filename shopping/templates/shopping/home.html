@@ -16,7 +16,7 @@
       {% if user.is_authenticated %}
       <p>Welcome {{user.username}}</p>
       <a href="http://127.0.0.1:8000/shopping/ChangePassword">ChangePassword</a>
-      <form action="/shopping/Logout/" method="POST">
+      <form id="Logout" action="/shopping/Logout/" method="POST">
        {% csrf_token %}
       <input type="submit" value="Logout">
    </form>
@@ -24,9 +24,21 @@
       <p>New to this site ? <a href="http://127.0.0.1:8000/shopping/New_User">SignUp here >> </a></p>
       <p>Already have an acoount? <a href="http://127.0.0.1:8000/shopping/Login">login here</a></p>
 
-     {% endif%}
+     {% endif %}
       <a href="http://127.0.0.1:8000/shopping/SpecialOffers">Go to offer zone</a>
     </div>
+    
+    {% for datas in data %}
+    <div class="products">
+    <a href=""><img src="{{media_url}}{{datas.items}}" height="400" width="400"></a>
+    <div>
+      <button type="submit">Add to Cart</button>
+    </div>
+    </div>
+    {% endfor %}
+  
+
+    <!--
       <div class="products">
         
         <a href=""><img src="{% static 'shopping/alexa.jpg' %}" alt="My image"  height="400" width="400"></a>
@@ -58,6 +70,7 @@
         <button type="submit">Add to Cart</button>
       </div>
      </div>
+     --->
     
 </body>
 
