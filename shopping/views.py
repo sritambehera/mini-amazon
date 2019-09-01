@@ -9,12 +9,11 @@ from shopping.models import UserCart
 
 def home(request):
 	data = Products.objects.all()
-	cart = UserCart.objects.all()
-	return render(request, 'shopping/home.html', {'data':data, 'media_url':settings.MEDIA_URL, 'cart':cart})
+	return render(request, 'shopping/home.html', {'data':data, 'media_url':settings.MEDIA_URL})
 
 def New_User(request):
 	if request.method == "POST":  
-		form = UserCreationForm(request.POST)
+		form = UserCreationForm(data = request.POST)
 		if form.is_valid():
 
 			form.save()
@@ -42,22 +41,32 @@ def Logout(request):
 
 
 
+
+
+def Cart(request):
+	user1 = None
+	if request.user.is_authenticated:
+		user1 = request.user.username
+		var = UserCart.objects.filter(customer__username ='bauna')
+		return render(request, 'shopping/cart.html', {'var':var})
+
+
 '''
 def Account(request):
 	user = 
 	return render(request, 'shopping/account.html', {'user':user})
 '''
-
+'''
 def Cart(request):
+
 	if request.method == "POST":
 		form = UserCart(request.POST)
-		variable = UserCart(cart_item = request.POST)
-		variable.save()
+		form.save()
 		return render(request, 'shopping/cart.html')
 	else:
 		form = UserCart()
 	return redirect( '/shopping/',{'form':form})
-
+'''
 
 @login_required(login_url="/shopping/Login/")
 def SpecialOffers(request):
