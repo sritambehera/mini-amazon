@@ -38,16 +38,22 @@ def Logout(request):
 		logout(request)
 		return redirect('/shopping/')
 
-
-
-
-
-
 def Cart(request):
 	user1 = None
 	if request.user.is_authenticated:
-		user1 = request.user.username
-		var = UserCart.objects.filter(customer__username ='bauna')
+		'''
+		NOTE: I was doing a silly mf silly mistake that i passed  user name manually as (for filtering user_cart_items)
+
+		customer_name = 'sritam'
+		but after that i used to pass: customer_name ='request.user' (notice that request.user is being passed in a string format which is absolutely not understandable by the code compiler)
+        (I searched this in google, stackoverflow , django documentation etc.)
+		IT TOOK ALMOST 2 DAYS FOR DEBUGGING THIS ERROR ( as i am new to django 🙂)
+		Whatever... great learning!
+		No matter how samll the error is. It is always going to be a error in your code 
+
+
+		'''
+		var = UserCart.objects.filter(customer__username = request.user)    
 		return render(request, 'shopping/cart.html', {'var':var})
 
 

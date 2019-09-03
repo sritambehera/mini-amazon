@@ -7,12 +7,11 @@
 	<form action="/shopping/Cart" method="POST">
 		{% csrf_token %}
 		
-		
 	</form>
-
 	{% for vars in var %}
 	<p>{{vars}}</p>
 	{% endfor %}
+
 	
 </body>
 {% endblock %}
