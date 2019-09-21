@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from products.models import Products
 from shopping.models import UserCart
 
+
 def home(request):
 	data = Products.objects.all()
 	return render(request, 'shopping/home.html', {'data':data, 'media_url':settings.MEDIA_URL})
@@ -42,7 +43,7 @@ def Cart(request):
 	user1 = None
 	if request.user.is_authenticated:
 		'''
-		NOTE: I was doing a silly mf silly mistake that i passed  user name manually as (for filtering user_cart_items)
+		NOTE: I was doing a mf silly mistake that i passed  user name manually as (for filtering user_cart_items)
 
 		customer_name = 'sritam'
 		but after that i used to pass: customer_name ='request.user' (notice that request.user is being passed in a string format which is absolutely not understandable by the code compiler)

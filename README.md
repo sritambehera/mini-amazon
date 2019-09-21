@@ -6,3 +6,5 @@ It has simple features like:-
     3.Password Change Form
     4.Products
     5.Shopping Cart
+
+![overview](https://github.com/sritambehera/mini-amazon/blob/master/Amazon.png)

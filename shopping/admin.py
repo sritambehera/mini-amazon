@@ -6,17 +6,16 @@ from django.contrib.auth.models import User
 admin.site.register(UserCart)
 
 class UserCartInline(admin.StackedInline):
-	model = UserCart
-	can_delete = False
-	verbose_name_plural = 'usercart'
+    model = UserCart
+    can_delete = False
+    verbose_name_plural = 'usercart'
 
 
 
 class UserAdmin(BaseUserAdmin):
-	inlines = (UserCartInline,)
+    inlines = (UserCartInline,)
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-
 
 # Register your models here.
